@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Premiere Effects Lab</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <span class="app-icon">Pr</span><strong>Premiere Effects Lab</strong>
+    <nav><span>Learning</span><span class="active">Editing</span><span>Color</span><span>Effects</span></nav>
+    <span id="status" class="status">Ready</span>
+  </header>
+  <main class="workspace">
+    <section class="panel effects-panel">
+      <h2>Effects</h2>
+      <input id="effectSearch" class="search" placeholder="Search Effects" aria-label="Search Effects">
+      <div id="effectList" class="effect-list">
+        <div class="folder open"><b>⌄</b> Video Effects</div>
+        <div class="folder open indent"><b>⌄</b> Blur &amp; Sharpen</div>
+        <button data-preset="blur">Gaussian Blur</button>
+        <div class="folder open indent"><b>⌄</b> Color Correction</div>
+        <button data-preset="vivid">Lumetri Color · Vivid</button>
+        <button data-preset="mono">Black &amp; White</button>
+        <div class="folder open indent"><b>⌄</b> Distort</div>
+        <button data-preset="tilt">Transform · Tilt</button>
+      </div>
+      <div class="media-bin">
+        <h2>Project: Effects Lab</h2>
+        <button class="clip-card selected" data-clip="flower"><span class="thumb flower"></span><span>꽃_30fps.mp4</span></button>
+        <button class="clip-card" data-clip="car"><span class="thumb car"></span><span>자동차_25fps.mp4</span></button>
+      </div>
+    </section>
+
+    <section class="center">
+      <div class="panel program-panel">
+        <h2>Program: Sequence 01 <span id="clipLabel">꽃_30fps.mp4</span></h2>
+        <div class="monitor">
+          <video id="programVideo" playsinline preload="metadata" src="assets/videos/9054643-hd_1920_1080_30fps.mp4"></video>
+        </div>
+        <div class="transport">
+          <span id="currentTime">00:00:00:00</span>
+          <button id="prevFrame" aria-label="Previous frame">◀|</button>
+          <button id="playButton" aria-label="Play">▶</button>
+          <button id="nextFrame" aria-label="Next frame">|▶</button>
+          <span id="duration">00:00:00:00</span>
+        </div>
+      </div>
+      <div class="panel timeline-panel">
+        <h2>Sequence 01</h2>
+        <div class="ruler"><span>00:00</span><span>00:05</span><span>00:10</span><span>00:15</span><span>00:20</span></div>
+        <div class="track"><label>V1</label><button class="timeline-clip selected" data-clip="flower">꽃 · 30 fps</button><button class="timeline-clip carclip" data-clip="car">자동차 · 25 fps</button><i id="playhead"></i></div>
+        <div class="track audio"><label>A1</label><div></div><div></div></div>
+      </div>
+    </section>
+
+    <aside class="panel controls-panel">
+      <h2>Effect Controls <span id="controlClip">꽃_30fps.mp4</span></h2>
+      <section class="control-group">
+        <h3><button class="fx-toggle active" data-group="motion">fx</button> Motion</h3>
+        <label>Position X <input id="positionX" type="range" min="-200" max="200" value="0"><output>0</output></label>
+        <label>Position Y <input id="positionY" type="range" min="-120" max="120" value="0"><output>0</output></label>
+        <label>Scale <input id="scale" type="range" min="50" max="180" value="100"><output>100%</output></label>
+        <label>Rotation <input id="rotation" type="range" min="-30" max="30" value="0"><output>0°</output></label>
+      </section>
+      <section class="control-group">
+        <h3><button class="fx-toggle active" data-group="opacity">fx</button> Opacity</h3>
+        <label>Opacity <input id="opacity" type="range" min="0" max="100" value="100"><output>100%</output></label>
+      </section>
+      <section class="control-group">
+        <h3><button class="fx-toggle active" data-group="color">fx</button> Lumetri Color</h3>
+        <label>Brightness <input id="brightness" type="range" min="20" max="180" value="100"><output>100%</output></label>
+        <label>Contrast <input id="contrast" type="range" min="20" max="200" value="100"><output>100%</output></label>
+        <label>Saturation <input id="saturation" type="range" min="0" max="220" value="100"><output>100%</output></label>
+        <label>Hue <input id="hue" type="range" min="-180" max="180" value="0"><output>0°</output></label>
+      </section>
+      <section class="control-group">
+        <h3><button class="fx-toggle active" data-group="blur">fx</button> Gaussian Blur</h3>
+        <label>Blurriness <input id="blur" type="range" min="0" max="24" value="0"><output>0px</output></label>
+      </section>
+      <button id="resetButton" class="reset">Reset all effects</button>
+    </aside>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
