@@ -15,7 +15,8 @@ ZIP을 푼 뒤 폴더 전체를 GitHub 저장소에 업로드하고 Pages를 활
 
 ## 조작
 
-- Effects 패널의 프리셋을 클릭하면 효과가 적용됩니다.
+- Effects 패널에는 Blur & Sharpen, Color Correction, Distort, Generate, Noise & Grain, Perspective, Stylize, Time, Video Transitions의 31개 효과가 포함됩니다.
+- 효과를 클릭하면 실제 영상에 적용되고 Effect Controls의 Applied Effects 목록에 추가됩니다. 목록의 효과 칩을 클릭하면 개별 제거할 수 있습니다.
 - Effect Controls 슬라이더로 Motion, Opacity, Lumetri Color, Gaussian Blur를 조정합니다.
 - `fx` 버튼으로 효과 그룹을 켜거나 끕니다.
 - Project 또는 Timeline에서 두 영상을 전환합니다.

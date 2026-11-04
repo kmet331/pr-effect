@@ -15,6 +15,15 @@
 
 두 영상 모두 Canvas에 그리지 않고 HTML `<video>` 요소가 상대 경로의 MP4 파일을 직접 재생합니다.
 
+## Effects 패널 확장 검증
+
+- Effects 패널: 31개 효과/트랜지션 노출 확인
+- Gaussian Blur: `blur(12px)` 적용 확인
+- Mirror: 영상 변환 행렬 `scaleX(-1)` 적용 확인
+- Vignette: 모니터 오버레이 적용 확인
+- Applied Effects: 추가된 효과 3개 표시 및 개별 제거 UI 확인
+- 꽃·자동차 영상 메타데이터와 전환 후 재생 확인
+
 ## 참고
 
 이전 대화에서 기존 Premiere Effects Lab HTML/ZIP은 첨부되지 않았기 때문에, 이 패키지는 접근 가능한 영상과 요구된 패널 구성을 바탕으로 제작한 복구판입니다. 기존 프로젝트 ZIP을 확보하면 원본 파일 기준으로 정확히 병합할 수 있습니다.

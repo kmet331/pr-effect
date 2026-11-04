@@ -20,11 +20,44 @@
         <div class="folder open"><b>⌄</b> Video Effects</div>
         <div class="folder open indent"><b>⌄</b> Blur &amp; Sharpen</div>
         <button data-preset="blur">Gaussian Blur</button>
+        <button data-preset="directionalBlur">Directional Blur</button>
+        <button data-preset="sharpen">Sharpen</button>
         <div class="folder open indent"><b>⌄</b> Color Correction</div>
         <button data-preset="vivid">Lumetri Color · Vivid</button>
         <button data-preset="mono">Black &amp; White</button>
+        <button data-preset="brightContrast">Brightness &amp; Contrast</button>
+        <button data-preset="warm">Color Balance · Warm</button>
+        <button data-preset="cool">Color Balance · Cool</button>
+        <button data-preset="hueShift">Hue/Saturation</button>
+        <button data-preset="faded">Faded Film</button>
+        <button data-preset="invert">Invert</button>
         <div class="folder open indent"><b>⌄</b> Distort</div>
         <button data-preset="tilt">Transform · Tilt</button>
+        <button data-preset="mirror">Mirror</button>
+        <button data-preset="flip">Vertical Flip</button>
+        <button data-preset="lens">Lens Distortion</button>
+        <button data-preset="wave">Wave Warp</button>
+        <div class="folder open indent"><b>⌄</b> Generate</div>
+        <button data-preset="grid">Grid</button>
+        <button data-preset="gradient">4-Color Gradient</button>
+        <div class="folder open indent"><b>⌄</b> Noise &amp; Grain</div>
+        <button data-preset="noise">Noise</button>
+        <div class="folder open indent"><b>⌄</b> Perspective</div>
+        <button data-preset="basic3d">Basic 3D</button>
+        <div class="folder open indent"><b>⌄</b> Stylize</div>
+        <button data-preset="emboss">Emboss</button>
+        <button data-preset="edges">Find Edges</button>
+        <button data-preset="mosaic">Mosaic</button>
+        <button data-preset="posterize">Posterize</button>
+        <button data-preset="vignette">Vignette</button>
+        <button data-preset="glow">Glow</button>
+        <button data-preset="scanlines">Scan Lines</button>
+        <div class="folder open indent"><b>⌄</b> Time</div>
+        <button data-preset="strobe">Strobe Light</button>
+        <div class="folder open"><b>⌄</b> Video Transitions</div>
+        <button data-preset="dissolve">Cross Dissolve</button>
+        <button data-preset="dipBlack">Dip to Black</button>
+        <button data-preset="wipe">Linear Wipe</button>
       </div>
       <div class="media-bin">
         <h2>Project: Effects Lab</h2>
@@ -36,8 +69,9 @@
     <section class="center">
       <div class="panel program-panel">
         <h2>Program: Sequence 01 <span id="clipLabel">꽃_30fps.mp4</span></h2>
-        <div class="monitor">
+        <div id="monitor" class="monitor">
           <video id="programVideo" playsinline preload="metadata" src="assets/videos/9054643-hd_1920_1080_30fps.mp4"></video>
+          <div class="fx-overlay" aria-hidden="true"></div>
         </div>
         <div class="transport">
           <span id="currentTime">00:00:00:00</span>
@@ -57,6 +91,10 @@
 
     <aside class="panel controls-panel">
       <h2>Effect Controls <span id="controlClip">꽃_30fps.mp4</span></h2>
+      <section class="control-group applied-group">
+        <h3>Applied Effects <span id="effectCount">0</span></h3>
+        <div id="appliedEffects" class="applied-effects"><span class="empty-effects">Effects 패널에서 효과를 선택하세요.</span></div>
+      </section>
       <section class="control-group">
         <h3><button class="fx-toggle active" data-group="motion">fx</button> Motion</h3>
         <label>Position X <input id="positionX" type="range" min="-200" max="200" value="0"><output>0</output></label>
