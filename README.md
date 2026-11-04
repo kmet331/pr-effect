@@ -16,7 +16,8 @@ ZIP을 푼 뒤 폴더 전체를 GitHub 저장소에 업로드하고 Pages를 활
 ## 조작
 
 - Effects 패널에는 Blur & Sharpen, Color Correction, Distort, Generate, Noise & Grain, Perspective, Stylize, Time, Video Transitions의 31개 효과가 포함됩니다.
-- 효과를 클릭하면 실제 영상에 적용되고 Effect Controls의 Applied Effects 목록에 추가됩니다. 목록의 효과 칩을 클릭하면 개별 제거할 수 있습니다.
-- Effect Controls 슬라이더로 Motion, Opacity, Lumetri Color, Gaussian Blur를 조정합니다.
+- Effects 패널의 각 카테고리는 Premiere Pro처럼 접기/펼치기가 가능합니다.
+- Effect Controls의 기본 항목은 Motion, Opacity, Time Remapping이며 다른 효과는 기본 표시하지 않습니다.
+- 효과를 클릭하면 실제 영상에 적용되고 해당 효과의 컨트롤이 Effect Controls에 동적으로 추가됩니다. `×` 버튼으로 개별 제거할 수 있습니다.
 - `fx` 버튼으로 효과 그룹을 켜거나 끕니다.
 - Project 또는 Timeline에서 두 영상을 전환합니다.

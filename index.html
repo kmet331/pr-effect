@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Premiere Effects Lab</title>
-  <link rel="stylesheet" href="styles.css?v=20261105-2">
+  <link rel="stylesheet" href="styles.css?v=20261105-3">
 </head>
 <body>
   <header class="topbar">
@@ -17,47 +17,17 @@
       <h2>Effects</h2>
       <input id="effectSearch" class="search" placeholder="Search Effects" aria-label="Search Effects">
       <div id="effectList" class="effect-list">
-        <div class="folder open"><b>⌄</b> Video Effects</div>
-        <div class="folder open indent"><b>⌄</b> Blur &amp; Sharpen</div>
-        <button data-preset="blur">Gaussian Blur</button>
-        <button data-preset="directionalBlur">Directional Blur</button>
-        <button data-preset="sharpen">Sharpen</button>
-        <div class="folder open indent"><b>⌄</b> Color Correction</div>
-        <button data-preset="vivid">Lumetri Color · Vivid</button>
-        <button data-preset="mono">Black &amp; White</button>
-        <button data-preset="brightContrast">Brightness &amp; Contrast</button>
-        <button data-preset="warm">Color Balance · Warm</button>
-        <button data-preset="cool">Color Balance · Cool</button>
-        <button data-preset="hueShift">Hue/Saturation</button>
-        <button data-preset="faded">Faded Film</button>
-        <button data-preset="invert">Invert</button>
-        <div class="folder open indent"><b>⌄</b> Distort</div>
-        <button data-preset="tilt">Transform · Tilt</button>
-        <button data-preset="mirror">Mirror</button>
-        <button data-preset="flip">Vertical Flip</button>
-        <button data-preset="lens">Lens Distortion</button>
-        <button data-preset="wave">Wave Warp</button>
-        <div class="folder open indent"><b>⌄</b> Generate</div>
-        <button data-preset="grid">Grid</button>
-        <button data-preset="gradient">4-Color Gradient</button>
-        <div class="folder open indent"><b>⌄</b> Noise &amp; Grain</div>
-        <button data-preset="noise">Noise</button>
-        <div class="folder open indent"><b>⌄</b> Perspective</div>
-        <button data-preset="basic3d">Basic 3D</button>
-        <div class="folder open indent"><b>⌄</b> Stylize</div>
-        <button data-preset="emboss">Emboss</button>
-        <button data-preset="edges">Find Edges</button>
-        <button data-preset="mosaic">Mosaic</button>
-        <button data-preset="posterize">Posterize</button>
-        <button data-preset="vignette">Vignette</button>
-        <button data-preset="glow">Glow</button>
-        <button data-preset="scanlines">Scan Lines</button>
-        <div class="folder open indent"><b>⌄</b> Time</div>
-        <button data-preset="strobe">Strobe Light</button>
-        <div class="folder open"><b>⌄</b> Video Transitions</div>
-        <button data-preset="dissolve">Cross Dissolve</button>
-        <button data-preset="dipBlack">Dip to Black</button>
-        <button data-preset="wipe">Linear Wipe</button>
+        <details class="effect-root" open><summary>Video Effects</summary>
+          <details open><summary>Blur &amp; Sharpen</summary><button data-preset="blur">Gaussian Blur</button><button data-preset="directionalBlur">Directional Blur</button><button data-preset="sharpen">Sharpen</button></details>
+          <details open><summary>Color Correction</summary><button data-preset="vivid">Lumetri Color · Vivid</button><button data-preset="mono">Black &amp; White</button><button data-preset="brightContrast">Brightness &amp; Contrast</button><button data-preset="warm">Color Balance · Warm</button><button data-preset="cool">Color Balance · Cool</button><button data-preset="hueShift">Hue/Saturation</button><button data-preset="faded">Faded Film</button><button data-preset="invert">Invert</button></details>
+          <details open><summary>Distort</summary><button data-preset="tilt">Transform · Tilt</button><button data-preset="mirror">Mirror</button><button data-preset="flip">Vertical Flip</button><button data-preset="lens">Lens Distortion</button><button data-preset="wave">Wave Warp</button></details>
+          <details open><summary>Generate</summary><button data-preset="grid">Grid</button><button data-preset="gradient">4-Color Gradient</button></details>
+          <details open><summary>Noise &amp; Grain</summary><button data-preset="noise">Noise</button></details>
+          <details open><summary>Perspective</summary><button data-preset="basic3d">Basic 3D</button></details>
+          <details open><summary>Stylize</summary><button data-preset="emboss">Emboss</button><button data-preset="edges">Find Edges</button><button data-preset="mosaic">Mosaic</button><button data-preset="posterize">Posterize</button><button data-preset="vignette">Vignette</button><button data-preset="glow">Glow</button><button data-preset="scanlines">Scan Lines</button></details>
+          <details open><summary>Time</summary><button data-preset="strobe">Strobe Light</button></details>
+        </details>
+        <details class="effect-root" open><summary>Video Transitions</summary><button data-preset="dissolve">Cross Dissolve</button><button data-preset="dipBlack">Dip to Black</button><button data-preset="wipe">Linear Wipe</button></details>
       </div>
       <div class="media-bin">
         <h2>Project: Effects Lab</h2>
@@ -91,10 +61,6 @@
 
     <aside class="panel controls-panel">
       <h2>Effect Controls <span id="controlClip">꽃_30fps.mp4</span></h2>
-      <section class="control-group applied-group">
-        <h3>Applied Effects <span id="effectCount">0</span></h3>
-        <div id="appliedEffects" class="applied-effects"><span class="empty-effects">Effects 패널에서 효과를 선택하세요.</span></div>
-      </section>
       <section class="control-group">
         <h3><button class="fx-toggle active" data-group="motion">fx</button> Motion</h3>
         <label>Position X <input id="positionX" type="range" min="-200" max="200" value="0"><output>0</output></label>
@@ -107,19 +73,13 @@
         <label>Opacity <input id="opacity" type="range" min="0" max="100" value="100"><output>100%</output></label>
       </section>
       <section class="control-group">
-        <h3><button class="fx-toggle active" data-group="color">fx</button> Lumetri Color</h3>
-        <label>Brightness <input id="brightness" type="range" min="20" max="180" value="100"><output>100%</output></label>
-        <label>Contrast <input id="contrast" type="range" min="20" max="200" value="100"><output>100%</output></label>
-        <label>Saturation <input id="saturation" type="range" min="0" max="220" value="100"><output>100%</output></label>
-        <label>Hue <input id="hue" type="range" min="-180" max="180" value="0"><output>0°</output></label>
+        <h3><button class="fx-toggle active" data-group="time">fx</button> Time Remapping</h3>
+        <label>Speed <input id="speed" type="range" min="25" max="400" value="100"><output>100%</output></label>
       </section>
-      <section class="control-group">
-        <h3><button class="fx-toggle active" data-group="blur">fx</button> Gaussian Blur</h3>
-        <label>Blurriness <input id="blur" type="range" min="0" max="24" value="0"><output>0px</output></label>
-      </section>
+      <div id="dynamicControls"></div>
       <button id="resetButton" class="reset">Reset all effects</button>
     </aside>
   </main>
-  <script src="app.js?v=20261105-2"></script>
+  <script src="app.js?v=20261105-3"></script>
 </body>
 </html>

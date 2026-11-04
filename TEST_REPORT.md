@@ -24,6 +24,14 @@
 - Applied Effects: 추가된 효과 3개 표시 및 개별 제거 UI 확인
 - 꽃·자동차 영상 메타데이터와 전환 후 재생 확인
 
+## Premiere 방식 패널 검증
+
+- Effects 카테고리의 접기/펼치기 동작 확인
+- 초기 Effect Controls에 Motion, Opacity, Time Remapping만 표시되는지 확인
+- Gaussian Blur 적용 시 해당 효과 컨트롤이 동적으로 생성되는지 확인
+- Lumetri Color 적용 전에는 표시되지 않고, 적용 후에만 동적 생성되는지 확인
+- 효과 제거 시 해당 Effect Controls 섹션이 함께 제거되는지 확인
+
 ## 참고
 
 이전 대화에서 기존 Premiere Effects Lab HTML/ZIP은 첨부되지 않았기 때문에, 이 패키지는 접근 가능한 영상과 요구된 패널 구성을 바탕으로 제작한 복구판입니다. 기존 프로젝트 ZIP을 확보하면 원본 파일 기준으로 정확히 병합할 수 있습니다.
