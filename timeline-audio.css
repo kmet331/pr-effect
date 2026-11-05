@@ -1,0 +1,6 @@
+.timeline-audio-clip{grid-column:2/4;border:1px solid #4b9c81;background:#295649;color:#d4efe5;text-align:left;padding:5px 8px;font-size:10px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.timeline-audio-clip.selected{outline:1px solid #b3f0d9;background:#357461}
+.controls-panel.audio-target>.control-group{display:none}
+.music-credit{display:block;margin-top:9px;padding-top:8px;border-top:1px solid #3d3d3d;color:#999;line-height:1.4}
+.music-credit a{color:#a9cce7}
+.audio-lab-status{display:block;color:#aaa;font-size:10px}

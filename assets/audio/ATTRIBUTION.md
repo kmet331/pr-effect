@@ -1,10 +1,21 @@
-# VoiceBank comparison samples
+# Audio attribution
+
+## Carefree (timeline music)
+
+- Title: **Carefree**
+- Creator: Kevin MacLeod
+- ISRC: USUAN1400037
+- Official source: https://www.incompetech.com/music/royalty-free/index.html?isrc=USUAN1400037
+- License: Creative Commons Attribution 4.0 International, https://creativecommons.org/licenses/by/4.0/
+- Changes: none. The original MP3 is included without trimming, transcoding, normalization, or other editing.
+
+## VoiceBank comparison samples
 
 These three files are the matching `p232_001.wav` utterance extracted from the University of Edinburgh test archives:
 
-- `voicebank-p232_001-clean.wav` — `clean_testset_wav.zip`
-- `voicebank-p232_001-noisy.wav` — `noisy_testset_wav.zip`
-- `voicebank-p232_001-reverb.wav` — `reverb_testset_wav.zip`
+- `voicebank-p232_001-clean.wav` - `clean_testset_wav.zip`
+- `voicebank-p232_001-noisy.wav` - `noisy_testset_wav.zip`
+- `voicebank-p232_001-reverb.wav` - `reverb_testset_wav.zip`
 
 Source datasets:
 
