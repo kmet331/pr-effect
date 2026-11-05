@@ -1,23 +1,42 @@
 # Premiere Effects Lab
 
-GitHub Pages에서 바로 실행할 수 있는 정적 웹 프로젝트입니다. Canvas로 영상을 그리지 않고 HTML `<video>` 요소에 로컬 MP4 파일을 직접 연결합니다.
+Public sample licensing: see [`assets/videos/ATTRIBUTION.md`](assets/videos/ATTRIBUTION.md) and [`assets/audio/ATTRIBUTION.md`](assets/audio/ATTRIBUTION.md). The published media are stock/demo fixtures; no private project files or credentials are included.
 
-## 실행
+Premiere Pro의 Effects 패널, Program Monitor, Effect Controls, Timeline을 웹에서 학습할 수 있도록 만든 정적 실습 페이지입니다. Canvas로 영상을 그리지 않고 HTML `<video>`와 저장소의 MP4 파일을 직접 사용합니다.
 
-ZIP을 푼 뒤 폴더 전체를 GitHub 저장소에 업로드하고 Pages를 활성화하거나, 로컬 정적 서버에서 `index.html`을 여세요.
+## 기준 환경과 배치
 
-## 포함 영상
+- 기준 설치본: Adobe Premiere Pro 2025 `25.6.4`
+- 확인된 번들: Film Impact 모듈 93개(`2025.6.1`)
+- 학습 배치: Effect Controls 왼쪽 위, Project 왼쪽 아래, Program/Timeline 중앙, Effects 오른쪽
+
+패널 위치는 Premiere의 Editing 작업 영역과 혼동을 줄이기 위한 유사 배치입니다. 사용자의 저장된 작업 영역이나 화면 크기에 따라 실제 Premiere 패널 위치는 달라질 수 있으므로 Adobe의 유일한 고정 기본 배치라고 주장하지 않습니다.
+
+## 미디어
 
 - `assets/videos/9054643-hd_1920_1080_30fps.mp4` — 꽃, 1920×1080, 30fps
 - `assets/videos/5057527-hd_1920_1080_25fps.mp4` — 자동차, 1920×1080, 25fps
 
-영상 출처: Pexels의 사용자 제공 다운로드 파일. 배포 전 최종 사용 조건은 원본 다운로드 페이지의 라이선스를 확인하세요.
+## 목록과 작동 범위
 
-## 조작
+효과 패널은 영상 효과, 비디오 전환, 오디오 효과, 오디오 전환의 네 종류를 분리해 보여 줍니다.
 
-- Effects 패널에는 Blur & Sharpen, Color Correction, Distort, Generate, Noise & Grain, Perspective, Stylize, Time, Video Transitions의 31개 효과가 포함됩니다.
-- Effects 패널의 각 카테고리는 Premiere Pro처럼 접기/펼치기가 가능합니다.
-- Effect Controls의 기본 항목은 Motion, Opacity, Time Remapping이며 다른 효과는 기본 표시하지 않습니다.
-- 효과를 클릭하면 실제 영상에 적용되고 해당 효과의 컨트롤이 Effect Controls에 동적으로 추가됩니다. `×` 버튼으로 개별 제거할 수 있습니다.
-- `fx` 버튼으로 효과 그룹을 켜거나 끕니다.
-- Project 또는 Timeline에서 두 영상을 전환합니다.
+- 파란 **작동**: 이 페이지에서 실제 적용 또는 미리보기 가능
+- 회색 **목록 참고**: 참고용 비활성 항목
+- 보라색 글자: 자주 쓰는 효과
+- Film Impact: 설치 파일에서 93개를 확인했지만 실제 패널을 열어 분류를 검증하지 못했으므로 `-FX` 파일명 기준 분류라고 명시하고 참고용으로 표시
+
+Adobe 설치 구성과 플러그인에 따라 목록은 달라질 수 있습니다. 이 저장소는 Adobe 공식 전수 목록임을 보증하지 않습니다.
+
+## 구현된 동작
+
+- 검색 결과와 빈 검색 상태
+- 클립마다 독립적인 Motion, Opacity, Time Remapping, 적용 효과 상태
+- 슬라이더와 숫자 입력, 효과별 켜기/끄기·초기화·삭제
+- 같은 속성을 조절하는 여러 효과의 누적 합성
+- 꽃과 자동차 두 실제 영상 사이 Cross Dissolve, Dip to Black, Linear Wipe
+- Web Audio 기반 Amplify, Balance, Lowpass
+- Constant Gain, Constant Power, Exponential Fade 오디오 크로스페이드
+- 선택 클립 전체 초기화
+
+정적 페이지이므로 로컬에서는 HTTP 서버로 열어야 MP4 range 요청과 Web Audio가 안정적으로 동작합니다. 검수 결과와 제한은 `TEST_REPORT.md`에 기록되어 있습니다.
