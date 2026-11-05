@@ -28,6 +28,7 @@ body .monitor.fx-basic3d #programVideo,body .monitor.fx-basic3d .warp-canvas,bod
 .version-note{color:#aaa;font-size:11px;line-height:1.25;white-space:normal;overflow:visible;max-width:none;flex:1}.topbar nav{margin:0}.topbar .status{margin-left:auto;white-space:nowrap}
 @media(max-width:700px){.topbar{height:auto;min-height:68px;align-content:center;flex-wrap:wrap;gap:7px 10px;padding:7px 10px}.topbar .version-note{order:5;flex-basis:100%;font-size:10px}.topbar .status{margin-left:auto}.workspace{height:calc(100vh - 68px)}}
 .effect-list button.is-working:after{content:none}
+.practice-lab{border-top:1px solid #3d3d3d;padding-top:8px}.practice-lab>summary{cursor:pointer;color:#aaa;font-size:11px;padding:6px 0}.practice-lab[open]>summary{color:#ddd}.practice-lab .audio-sample-lab{margin-top:8px}.audio-lab-status{display:block;color:#aaa;font-size:10px;min-height:14px}.timeline-panel h2 #previewTransition,.timeline-panel h2 #audioTransitionType,.timeline-panel h2 #transitionType{display:none}
 .pipeline-warning{margin:8px;padding:7px 9px;border:1px solid #806c3d;background:#332d20;color:#e0c884;font-size:10px;line-height:1.4}
 body>svg{position:absolute;width:0;height:0;overflow:hidden}
 @media(max-width:700px){.workspace{height:calc(100vh - 68px)}}
