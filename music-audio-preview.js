@@ -21,7 +21,7 @@ function pauseMusic(){musicElements.forEach(media=>media.pause())}
 function waitForMedia(media){return new Promise((resolve,reject)=>{if(media.readyState>=1)return resolve();const timer=setTimeout(()=>{cleanup();reject(new Error('미디어 로딩 시간 초과'))},5000);const cleanup=()=>{clearTimeout(timer);media.removeEventListener('loadedmetadata',ok);media.removeEventListener('error',fail)};const ok=()=>{cleanup();resolve()},fail=()=>{cleanup();reject(new Error('미디어 파일 로딩 실패'))};media.addEventListener('loadedmetadata',ok);media.addEventListener('error',fail)})}
 function syncMusic(force=false){
  if(!timelineAudioGraph||!secondAudioGraph)return;
- const time=sequenceAbsoluteTime(),frame=musicFrame(time),playing=musicTransitionClock!==null||!video.paused;
+ const time=sequenceAbsoluteTime(),frame=musicFrame(time),playing=musicTransitionClock!==null||!video.paused||(video.ended&&active==='flower');
  [timelineAudioGraph,secondAudioGraph].forEach((graph,i)=>{
   const media=musicElements[i],gain=frame.gains[i],target=Math.max(0,frame.times[i]);
   if(graph.musicGain)graph.musicGain.gain.setTargetAtTime(gain,graph.context.currentTime,.008);
