@@ -27,3 +27,10 @@ License: Creative Commons Attribution 4.0 International, https://creativecommons
 Changes: the WAV payloads were extracted from their ZIP archives and renamed for a compact browser A/B exercise. The audio samples themselves were not trimmed, resampled, normalized, or otherwise altered.
 
 `DeNoise` and `DeReverb` remain reference-only in the lab. These files provide matched material for listening and future algorithm validation; their presence does not imply that either Premiere effect has been reproduced.
+
+## Gymnopedie No. 1 (second timeline music)
+- Composer: Erik Satie; recording: Kevin MacLeod.
+- Official source: https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1100787
+- Original download: https://incompetech.com/music/royalty-free/mp3-royaltyfree/Gymnopedie%20No%201.mp3
+- License: CC BY 4.0, https://creativecommons.org/licenses/by/4.0/
+- Changes: first 45 seconds excerpted and encoded to 128 kb/s MP3 for this demo.
