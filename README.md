@@ -36,7 +36,14 @@ Adobe 설치 구성과 플러그인에 따라 목록은 달라질 수 있습니�
 - 같은 속성을 조절하는 여러 효과의 누적 합성
 - 꽃과 자동차 두 실제 영상 사이 Cross Dissolve, Dip to Black, Linear Wipe
 - Web Audio 기반 Amplify, Balance, Lowpass
-- Constant Gain, Constant Power, Exponential Fade 오디오 크로스페이드
+- Carefree / Gymnopedie No. 1 두 음악 클립의 Constant Gain, Constant Power, Exponential Fade 오디오 크로스페이드
+- 음악 전환 적용/삭제, 길이 0.5–8초, 경계 구간 듣기 및 곡별 독립 효과
 - 선택 클립 전체 초기화
 
 정적 페이지이므로 로컬에서는 HTTP 서버로 열어야 MP4 range 요청과 Web Audio가 안정적으로 동작합니다. 검수 결과와 제한은 `TEST_REPORT.md`에 기록되어 있습니다.
+
+## Audio regression checks
+
+Run `node tests/audio-regression.cjs`, `node --check app.js`, and `node --check music-timeline.js`. In-browser output RMS diagnostics live on the two hidden audio elements (`data-output-rms`, `data-context-state`, `data-fade-gain`); these measure the signal after effects/crossfade, before device output, not speaker audibility.
+
+The demo uses educational gain curves (linear, sine/cosine equal power, normalized exponential); it does not claim sample-for-sample equivalence with Adobe's processing. Music clips meet at the video cut with source handles around the audio transition. With no transition they hard-cut; changing the duration does not move the edit.

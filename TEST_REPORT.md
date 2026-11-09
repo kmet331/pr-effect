@@ -517,3 +517,18 @@
 - 이 환경은 자동화된 청감 판정 장치가 없으므로 소리의 주관적 품질은 평가하지 않았습니다. 대신 실제 재생 중 Web Audio 노드 값과 두 미디어 요소의 volume 변화가 발생하는 것을 확인했습니다.
 - Premiere Pro 2025 공식 목록과 전수 대조하지 않았습니다. 회색 항목은 학습용 참고 목록이며 완전성을 보증하지 않습니다.
 - GitHub Pages 배포는 요청에 따라 실행하지 않았습니다.
+
+## 2026-11-09 Music repair and two-clip crossfade
+
+- Fixed inactive DeHummer: use allpass rather than an extremely broad notch (Q=0.0001).
+- Added a second, locally hosted licensed piano excerpt and independent per-clip effect states/graphs.
+- Music transition has a fixed edit point, 0.5–8 s duration, source handles, apply/remove and preview. UI gains target the music graph rather than video volume.
+- Added visible playback failure reporting and read-only diagnostics after all effects and fade gains.
+- `node --check app.js`, `node --check music-timeline.js`, `node tests/audio-regression.cjs`, and `git diff --check`: passed.
+- Preview deployment verified identical to local app.js.
+- Actual MAENG-DESKTOP Chrome, initial playback: Carefree t=9.33 s, paused=false, AudioContext running, inactive hum allpass, output RMS=0.081965; no console error/warn.
+- This RMS is an actual browser signal measurement before the hardware destination. Speaker audibility was not personally heard.
+- Real Chrome music tests: Constant Gain midpoint gains .5135/.4865 with RMS .032708/.013727; Constant Power overlap RMS .004363/.022265; Exponential midpoint gains .1192/.1192 with RMS .007972/.002770.
+- Removing transition produced hard cut 1/0 → 0/1; pause stopped both elements; second clip Amplify 120% did not add an effect to the first clip.
+- Audio-cut continuity was separately hardened to keep music playing while the video element swaps sources and preserve the selected music effect target.
+- Final audio3 browser rerun: 140 samples around the automatic video cut kept both music elements paused=false. At 18:13 gains .721/.693 and RMS .042301/.017674; at 18:16 gains .6466/.7628 and RMS .056249/.013415; after 20:03 gains 0/1 and RMS 0/.025966. Selected Gymnopedie Effect Controls target survived the automatic cut. The previous pause/selection issue was not reproduced.
