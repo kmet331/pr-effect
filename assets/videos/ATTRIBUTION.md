@@ -21,3 +21,9 @@ The samples contain ordinary stock/demo imagery and no account credentials or pr
 - Source: https://www.pexels.com/video/a-hand-holding-a-smartphone-with-a-green-screen-9558749/
 - Pexels License: https://www.pexels.com/license/ (free use and modification, including websites/apps; not an endorsement or stock redistribution service).
 - Downloaded 960×506 / 25 fps version, 21.32 seconds, used for interactive chroma-key teaching. Real filmed hand/phone, no faces. Green phone display is replaced by the existing background video, not the whole studio background.
+
+## Current chroma sample replacement (2026-11-09)
+- `chroma-candle-bridgewater.mp4`: Ivan Bridgewater, Stock Footage - Chroma Key Candle, 2007.
+- Original: https://archive.org/details/IMB_SF_R24_C1
+- License: CC BY 3.0, https://creativecommons.org/licenses/by/3.0/ (verified original item metadata).
+- Real filmed candle in front of a green screen. Excerpt 00:12–00:28; title/countdown excluded, silent H.264 transcode, border crop and green side padding for 960×540 square-pixel output. No generated footage. Used in interactive educational chroma-key composition.
