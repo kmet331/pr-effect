@@ -1,0 +1,22 @@
+const fs=require('fs'),vm=require('vm'),assert=require('assert/strict');
+const src=fs.readFileSync(__dirname+'/../app.js','utf8');
+const code=src.slice(src.indexOf('// One visual clock'),src.indexOf("video.addEventListener('seeking',resetTemporalBuffers)"));
+let now=0,id=0;const queued=new Map(),events={},docEvents={};
+const track={clientWidth:1042},head={parentElement:track,style:{}},label={textContent:''},scrub={value:'0',matches:()=>false};
+const video={paused:true,currentTime:0,addEventListener:(k,fn)=>events[k]=fn};
+const ctx={video,active:'flower',clips:{flower:{duration:20}},sequenceDuration:40,document:{hidden:false,addEventListener:(k,fn)=>docEvents[k]=fn},window:{addEventListener:()=>{}},performance:{now:()=>now},requestAnimationFrame:fn=>{queued.set(++id,fn);return id},cancelAnimationFrame:i=>queued.delete(i),tc:t=>t.toFixed(2),$:s=>({'#playhead':head,'#currentTime':label,'#timelineScrubber':scrub}[s])};
+vm.createContext(ctx);vm.runInContext(code,ctx);
+assert.equal(head.style.transform,'translate3d(0px,0,0)');assert.equal(queued.size,0);
+video.paused=false;events.play();events.play();assert.equal(queued.size,1);
+function frame(t){now=t;const list=[...queued.values()];queued.clear();for(const fn of list)fn(t)}
+video.currentTime=2;frame(2000);assert.equal(head.style.transform,'translate3d(50px,0,0)');assert.equal(queued.size,1);
+video.paused=true;events.pause();frame(2016);assert.equal(queued.size,0);
+video.currentTime=4;events.seeking();assert.equal(label.textContent,'4.00');assert.equal(scrub.value,'100');
+ctx.active='car';video.currentTime=5;events.seeked();assert.equal(label.textContent,'25.00');
+track.clientWidth=542;ctx.measurePlayheadTrack();assert.equal(head.style.transform,'translate3d(312.5px,0,0)');
+video.paused=false;events.play();ctx.document.hidden=true;docEvents.visibilitychange();assert.equal(queued.size,0);
+video.currentTime=8;ctx.document.hidden=false;docEvents.visibilitychange();assert.equal(label.textContent,'28.00');assert.equal(queued.size,1);
+vm.runInContext('playheadClock={time:20,started:2000,limit:2}',ctx);frame(2500);assert.equal(label.textContent,'20.50');frame(5000);assert.equal(label.textContent,'22.00');
+vm.runInContext('playheadClock=null',ctx);video.currentTime=2;events.seeked();assert.equal(label.textContent,'22.00');
+assert(!src.includes("$('#playhead').style.left=`calc"));
+console.log('PASS: smooth frames, one loop, pause, seek, clip change, resize, hidden/resume, bounded transition clock; no audio writes');
